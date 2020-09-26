@@ -1,7 +1,7 @@
 {
   "main": {
     "name": "Benjamin Lewis",
-    "occupation": "Senior CS student at San Francisco State University.",
+    "occupation": "Senior CS student at San Francisco State University",
     "description": "Aspiring Software Engineer.",
     "image": "ben_avatar.png",
     "bio": "My name is Benjamin, currently finishing my Bachelor's of Science in Computer Science at SFSU. ",
@@ -9,7 +9,7 @@
     "email": "benjaminlewis984@gmail.com ",
     "phone": "+1 916 616 8853",
     "address": {
-      "street": "595 John Muir Dr Apt c612",
+      "street": "595 John Muir Dr",
       "city": "San Francisco",
       "state": "CA",
       "zip": "94132"
