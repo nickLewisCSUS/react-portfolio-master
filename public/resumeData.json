@@ -4,7 +4,7 @@
     "occupation": "Software Engineer at SERES EV",
     "description": "Bachelor's of Science Degree in Computer Science from San Francisco State University",
     "image": "ben_avatar.png",
-    "bio": "My name is Benjamin, currently working at SERES EV to help create intelligent connectivity within EV cars",
+    "bio": "My name is Benjamin, currently working at SERES EV to help create intelligent connectivity within electric vehicles",
     "contactmessage": "Get in touch with me to learn more",
     "email": "benjaminlewis984@gmail.com",
     "phone": "+1 916 616 8853",
@@ -46,8 +46,14 @@
     "work": [
       {
         "company": "SERES EV",
+        "title": "Software Engineer",
+        "years": "Feburary 2021 - Present",
+        "description": "Responsible for writing quality programs that are used for Intelligent Connectiving solutions on electric vehicles."
+      },
+      {
+        "company": "SERES EV",
         "title": "Software Engineer Intern",
-        "years": "October 2020 - Present",
+        "years": "October 2020 - Feburary 2021",
         "description": "Responsible for contributing to the human-machine interface. Creating Over-The-Air solutions for vehicle download and update services."
       },
       {
@@ -80,7 +86,7 @@
       },
       {
         "name": "C++",
-        "level": "75%"
+        "level": "85%"
       },
       {
         "name": "Python",
@@ -88,11 +94,11 @@
       },
       {
         "name": "C",
-        "level": "78%"
+        "level": "90%"
       },
       {
         "name": "Shell Scripts",
-        "level": "90%"
+        "level": "95%"
       }
     ]
   },
