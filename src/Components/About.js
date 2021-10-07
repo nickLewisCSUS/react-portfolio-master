@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import resume from 'src/BLewisResume.pdf';
+import resume from '../BLewisResume.pdf'
+// import resume from 'src/BLewisResume.pdf';
 
 class About extends Component {
    render() {
