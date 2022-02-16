@@ -4,7 +4,7 @@
     "occupation": "Software Engineer at SERES EV",
     "description": "Bachelor's of Science Degree in Computer Science from San Francisco State University",
     "image": "ben_avatar.png",
-    "bio": "My name is Benjamin, currently working at SERES EV to create intelligent connectivity within electric vehicles",
+    "bio": "Hi, my name is Ben, I am currently working at SERES EV to create and maintain Intelligent Connectivity within electric vehicles",
     "contactmessage": "Get in touch with me to learn more",
     "email": "benjaminlewis984@gmail.com",
     "phone": "+1 916 616 8853",
@@ -48,13 +48,13 @@
         "company": "SERES EV",
         "title": "Software Engineer",
         "years": "Feburary 2021 - Present",
-        "description": "Responsible for writing quality programs that are used for Intelligent Connectiving solutions on electric vehicles."
+        "description": "Completed Over-The-Air (FOTA and DOTA) services for the Seres SF5 EVR model; implements cloud communication, shell scripting, CAN bus routine control, functional saftey and extensive logging systems. Currently working on Seres' Architecture and Control team to assist firmware production of the 2nd generation Power Control Unit (PCU)."
       },
       {
         "company": "SERES EV",
         "title": "Software Engineer Intern",
         "years": "October 2020 - Feburary 2021",
-        "description": "Responsible for contributing to the human-machine interface. Creating Over-The-Air solutions for vehicle download and update services."
+        "description": "Responsible for contributing to the Human-Machine-Interface. Creating Over-The-Air solutions for vehicle download and update services. Assisting in the design and improving upon the OTA subsystem standard."
       },
       {
         "company": "Waterworks Aquatics",
