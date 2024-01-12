@@ -3,13 +3,12 @@
     "name": "Nicholas Lewis",
     "occupation": "full time student at California State University, Sacramento",
     "description": "Pursuing Bachelor's of Science Degree in Computer Science from Sacramento State University",
-    "image": "ben_avatar.png",
-    "bio": "Hi, my name is Nick, I am currently seeking a Bachelor's of Science Degree at Sacramento state University and working part time as a Starbucks barista at Target",
+    "image": "Nick-image.jpeg",
+    "bio": "Hi, my name is Nick, I am currently seeking a Bachelor's of Science Degree at Sacramento State University and working part time as a Starbucks Barista at Target",
     "contactmessage": "Get in touch with me to learn more",
     "email": "nicholaslewis3452@gmail.com",
     "phone": "+1 916 666 0510",
     "address": {
-      "street": "144 E Street",
       "city": "Lincoln",
       "state": "CA",
       "zip": "95648"
@@ -46,14 +45,14 @@
         "school": "California State University, Sacramento",
         "degree": "Pursueing a Bachelor’s Degree in Computer Science",
         "graduated": "January 2023 - present",
-        "description": " Currently enrolled in Obj-Oriented Computer Graphics, Database Management Systems, Computer Organization and Computer Network Fundamentals"
+        "description": " Currently enrolled in Obj-Oriented Computer Graphics, Database Management Systems, Computer Organization, and Computer Network Fundamentals"
       }
     ],
     "work": [
       {
         "company": "Target",
         "title": "StarBucks Barista",
-        "years": "Feburary 2021 - Present",
+        "years": "August 2021 - Present",
         "description": "Preparing and serving a variety of coffee and other beverages, providing excellent customer service, and maintaining a clean and organized work environment."
       }
     ],
@@ -84,8 +83,8 @@
     "projects": [
       {
         "title": "Dynamic-PDF-Generation",
-        "category": "PDF Generation, storage, and Email delivery with Google Firebase. Uses JavasCript and LaTeX.",
-        "image": "swamp.jpg",
+        "category": "PDF Generation, storage, and Email delivery with Google Firebase. Uses JavaScript and LaTeX.",
+        "image": "pdf-image.png",
         "url": "https://bit.ly/3QL1rmw"
       }
     ]
