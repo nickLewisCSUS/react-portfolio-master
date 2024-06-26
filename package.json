@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-benjamin-lewis",
+  "name": "portfolio-nicholas-lewis",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,6 +35,6 @@
     "type": "git",
     "url": "portfolio"
   },
-  "author": "Benjamin Lewis",
+  "author": "Nicholas Lewis",
   "license": "ISC"
 }

@@ -45,7 +45,7 @@
         "school": "California State University, Sacramento",
         "degree": "Pursuing a Bachelor’s Degree in Computer Science",
         "graduated": "January 2023 - present",
-        "description": " Currently enrolled in Obj-Oriented Computer Graphics, Database Management Systems, Computer Organization, and Computer Network Fundamentals"
+        "description": " Currently enrolled in Formal Languages, Operating Systems, Modeling and Experimental Design, and the Senior Project."
       }
     ],
     "work": [
@@ -59,11 +59,11 @@
     "skills": [
       {
         "name": "Java",
-        "level": "90%"
+        "level": "95%"
       },
       {
         "name": "C",
-        "level": "55%"
+        "level": "50%"
       },
       {
         "name": "Python",
@@ -71,7 +71,7 @@
       },
       {
         "name": "JavaScript",
-        "level": "90%"
+        "level": "85%"
       },
       {
         "name": "Shell Scripts",
@@ -86,6 +86,12 @@
         "category": "PDF Generation, storage, and Email delivery with Google Firebase. Uses JavaScript and LaTeX.",
         "image": "pdf-image.png",
         "url": "https://bit.ly/3QL1rmw"
+      },
+      {
+        "title": "Game of Life",
+        "category": "Cellular automation from the Game of Life adaptation. Uses Java and orthographic projection",
+        "image": "game-of-life.png",
+        "url": "https://bit.ly/3V600RS"
       }
     ]
   },
@@ -96,7 +102,7 @@
         "user": "Andrew Hunt and David Thomas"
       },
       {
-        "text": "Computer science is no more computers than astronomy is about telescopes. ",
+        "text": "Computer Science is no more computers than astronomy is about telescopes. ",
         "user": "Edsger Dikjkstra"
       }
     ]
