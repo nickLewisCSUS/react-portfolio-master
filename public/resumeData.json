@@ -59,23 +59,23 @@
     "skills": [
       {
         "name": "Java",
-        "level": "85%"
+        "level": "50%"
       },
       {
         "name": "C",
-        "level": "90%"
+        "level": "75%"
       },
       {
         "name": "Python",
-        "level": "95%"
+        "level": "90%"
       },
       {
         "name": "JavaScript",
-        "level": "80%"
+        "level": "85%"
       },
       {
         "name": "Shell Scripts",
-        "level": "90%"
+        "level": "85%"
       }
     ]
   },
@@ -92,7 +92,20 @@
         "category": "Cellular automation from the Game of Life adaptation. Uses Java and orthographic projection",
         "image": "game-of-life.png",
         "url": "https://bit.ly/3V600RS"
+      },
+      {
+        "title": "Custom Command Line Argument Processor (myxargs)",
+        "category": "Designed a C-based command-line utility inspired by Unix ‘xargs‘",
+        "image": "Xargs.png",
+        "url": "https://bit.ly/3V600RS"
+      },
+      {
+        "title": "Reimagining the Sac State LIFE Mobile Application",
+        "category": "Leading a team to develop a student-focused app with a dashboard, AI chatbot, calendar, wellness resources, and campus navigation",
+        "image": "image.png",
+        "url": "https://bit.ly/3V600RS"
       }
+
     ]
   },
   "testimonials": {
