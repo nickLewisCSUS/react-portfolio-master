@@ -97,13 +97,13 @@
         "title": "Custom Command Line Argument Processor (myxargs)",
         "category": "Designed a C-based command-line utility inspired by Unix ‘xargs‘",
         "image": "Xargs.png",
-        "url": "https://bit.ly/3V600RS"
+        "url": "https://github.com/nickLewisCSUS/XARGS"
       },
       {
         "title": "Reimagining the Sac State LIFE Mobile Application",
         "category": "Leading a team to develop a student-focused app with a dashboard, AI chatbot, calendar, wellness resources, and campus navigation",
         "image": "image.png",
-        "url": "https://bit.ly/3V600RS"
+        "url": "https://github.com/Sac-State-Mobile-App-The-Nest/SAC-LIFE"
       }
 
     ]
