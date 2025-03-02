@@ -2,12 +2,13 @@
   "main": {
     "name": "Nicholas Lewis",
     "occupation": "full time student at California State University, Sacramento",
-    "description": "Pursuing Bachelor's of Science Degree in Computer Science from Sacramento State University",
+    "description": "Pursuing Bachelor's Degree in Computer Science",
     "image": "Nick-image.jpeg",
-    "bio": "Hi, my name is Nick, I am currently seeking a Bachelor's of Science Degree at Sacramento State University and working part time as a Starbucks Barista at Target",
+    "bio": "Hi, my name is Nick, I am currently seeking a Bachelor's Degree at Sacramento State University and working part time as a Starbucks Barista at Target. I Love to compete in Hackathons and working with Raspberry Pi's",
     "contactmessage": "Get in touch with me to learn more",
     "email": "nicholaslewis3452@gmail.com",
     "phone": "+1 916 666 0510",
+    "location": "California",
     "address": {
       "city": "Lincoln",
       "state": "CA",
@@ -45,7 +46,7 @@
         "school": "California State University, Sacramento",
         "degree": "Pursuing a Bachelor’s Degree in Computer Science",
         "graduated": "January 2023 - present",
-        "description": " Currently enrolled in Formal Languages, Operating Systems, Modeling and Experimental Design, and the Senior Project."
+        "description": " Currently enrolled in Parallel Programming with GPUs, Computer Game Architecture, and the Senior Project. Also, competing in Sac State's Spring 2025 AI Hackathon."
       }
     ],
     "work": [
