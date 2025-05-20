@@ -19,35 +19,40 @@ class About extends Component {
 
       return (
          <section id="about">
-            <div className="row">
+            <div className="row about-wrapper">
+               {/* Profile Picture Column */}
                <div className="three columns">
-                  <img className="profile-pic" src={profilepic} alt="Tim Baker Profile Pic" />
+               <img className="profile-pic" src={profilepic} alt={`${name} Profile`} />
                </div>
-               <div className="nine columns main-col">
-                  <h2>About Me</h2>
 
-                  <p>{bio}</p>
-                  <div className="row">
+               {/* Main Content Column */}
+               <div className="nine columns main-col about-card">
+                  <h2 className="fade-delay-1">About Me</h2>
+                  <p className="fade-delay-2">{bio}</p>
+
+                  <div className="section-divider"></div>
+
+                  <div className="row fade-delay-3">
                      <div className="columns contact-details">
                         <h2>Contact Details</h2>
                         <p className="address">
-                           <span>{name}</span><br />
-                           <span>{street}<br />
-                              {city} {state}, {zip}
-                           </span><br />
-                           <span>{phone}</span><br />
-                           <span>{email}</span>
+                        <span>{name}</span>
+                        <span>{city}, {state} {zip}</span>
+                        <span><a href={`tel:${phone}`}>{phone}</a></span>
+                        <span><a href={`mailto:${email}`}>{email}</a></span>
                         </p>
                      </div>
+
                      <div className="columns download">
                         <p>
-                           <a href={resume} className="button" download><i className="fa fa-download"></i>Download Resume</a>
+                        <a href={resume} className="button" download>
+                           <i className="fa fa-download"></i> Download Resume
+                        </a>
                         </p>
                      </div>
                   </div>
                </div>
             </div>
-
          </section>
       );
    }

@@ -1,10 +1,10 @@
 {
   "main": {
     "name": "Nicholas Lewis",
-    "occupation": "full time student at California State University, Sacramento",
-    "description": "Pursuing Bachelor's Degree in Computer Science",
+    "occupation": "Aspiring Software Engineer",
+    "description": "Recent Computer Science graduate from California State University, Sacramento with a passion for hackathons, game development, and creative tech projects",
     "image": "Nick-image.jpeg",
-    "bio": "Hi, my name is Nick, I am currently seeking a Bachelor's Degree at Sacramento State University and working part time as a Starbucks Barista at Target. I Love to compete in Hackathons and working with Raspberry Pi's",
+    "bio": "Hi, my name is Nick. I recently graduated with a Bachelor's Degree in Computer Science from Sacramento State University. I'm passionate about building creative tech solutions, especially through hackathons and hands-on projects with Raspberry Pi. I also bring a strong work ethic from my experience as a Starbucks Barista at Target.",
     "contactmessage": "Get in touch with me to learn more",
     "email": "nicholaslewis3452@gmail.com",
     "phone": "+1 916 666 0510",
@@ -22,11 +22,6 @@
         "className": "fa fa-linkedin"
       },
       {
-        "name": "instagram",
-        "url": "https://www.instagram.com/nicklew_is/",
-        "className": "fa fa-instagram"
-      },
-      {
         "name": "github",
         "url": "https://github.com/nickLewisCSUS",
         "className": "fa fa-github"
@@ -38,15 +33,15 @@
     "education": [
       {
         "school": "Sierra College",
-        "degree": "Associate in Science in Computer Science For Transfer",
+        "degree": "A.S in Computer Science For Transfer",
         "graduated": "December 2022",
         "description": ""
       },
       {
         "school": "California State University, Sacramento",
-        "degree": "Pursuing a Bachelor’s Degree in Computer Science",
-        "graduated": "January 2023 - present",
-        "description": " Currently enrolled in Parallel Programming with GPUs, Computer Game Architecture, and the Senior Project. Also, competing in Sac State's Spring 2025 AI Hackathon."
+        "degree": "B.S. in Computer Science",
+        "graduated": "January 2023 – May 2025",
+        "description": "Completed courses in Parallel Programming with GPUs, Computer Game Architecture, and a year-long Senior Project. Participated in Sac State's Spring 2025 AI Hackathon, building an AI-powered mental health chatbot."
       }
     ],
     "work": [
@@ -82,6 +77,19 @@
   },
   "portfolio": {
     "projects": [
+
+      {
+        "title": "Reimagining the Sac State LIFE Mobile Application",
+        "category": "Led development of a student-centered mobile app featuring a personalized dashboard, wellness bar, and AI-powered chatbot for support and engagement.",
+        "image": "sac-LIFE.png",
+        "url": "https://github.com/Sac-State-Mobile-App-The-Nest/SAC-LIFE"
+      },
+      {
+        "title": "Big Boom",
+        "category": "Big Boom is a fast-paced multiplayer tank game with real-time physics and power-ups, built in Java using the TAGE engine.",
+        "image": "BigBoom.png",
+        "url": "https://bit.ly/3V600RS"
+      },
       {
         "title": "Dynamic-PDF-Generation",
         "category": "PDF Generation, storage, and Email delivery with Google Firebase. Uses JavaScript and LaTeX.",
@@ -89,22 +97,10 @@
         "url": "https://bit.ly/3QL1rmw"
       },
       {
-        "title": "Game of Life",
-        "category": "Cellular automation from the Game of Life adaptation. Uses Java and orthographic projection",
-        "image": "game-of-life.png",
-        "url": "https://bit.ly/3V600RS"
-      },
-      {
         "title": "Custom Command Line Argument Processor (myxargs)",
         "category": "Designed a C-based command-line utility inspired by Unix ‘xargs‘",
         "image": "Xargs.png",
         "url": "https://github.com/nickLewisCSUS/XARGS"
-      },
-      {
-        "title": "Reimagining the Sac State LIFE Mobile Application",
-        "category": "Leading a team to develop a student-focused app with a dashboard, AI chatbot, calendar, wellness resources, and campus navigation",
-        "image": "image.png",
-        "url": "https://github.com/Sac-State-Mobile-App-The-Nest/SAC-LIFE"
       }
 
     ]
