@@ -16,62 +16,55 @@ class Resume extends Component {
             <p>{work.description}</p>
         </div>
       })
-      var skills = this.props.data.skills.map(function(skills){
-        var className = 'bar-expand '+skills.name.toLowerCase();
-        return <li key={skills.name}><span style={{width:skills.level}}className={className}></span><em>{skills.name}</em></li>
-      })
+      var skills = this.props.data.skills.map((skill) => {
+        const style = {
+          width: skill.level
+        };
+        return (
+          <li key={skill.name}>
+            <em>{skill.name}</em>
+            <div className="bar-container">
+              <span style={style} className="bar-expand"></span>
+            </div>
+          </li>
+        );
+      });
     }
 
     return (
       <section id="resume">
 
-      <div className="row education">
-         <div className="three columns header-col">
+        <div className="row section">
+          <div className="three columns header-col">
             <h1><span>Education</span></h1>
-         </div>
-
-         <div className="nine columns main-col">
-            <div className="row item">
-               <div className="twelve columns">
-                 {education}
-               </div>
-            </div>
-         </div>
-      </div>
-
-
-      <div className="row work">
-
-         <div className="three columns header-col">
-            <h1><span>Work</span></h1>
-         </div>
-
-         <div className="nine columns main-col">
-          {work}
+          </div>
+          <div className="nine columns main-col resume-card">
+            {education}
+          </div>
         </div>
-    </div>
 
+        <div className="row section">
+          <div className="three columns header-col">
+            <h1><span>Work</span></h1>
+          </div>
+          <div className="nine columns main-col resume-card">
+            {work}
+          </div>
+        </div>
 
-
-      <div className="row skill">
-
-         <div className="three columns header-col">
+        <div className="row section">
+          <div className="three columns header-col">
             <h1><span>Skills</span></h1>
-         </div>
+          </div>
+          <div className="nine columns main-col resume-card">
+            <p>{skillmessage}</p>
+            <div className="bars">
+              <ul className="skills">{skills}</ul>
+            </div>
+          </div>
+        </div>
 
-         <div className="nine columns main-col">
-
-            <p>{skillmessage}
-            </p>
-
-				<div className="bars">
-				   <ul className="skills">
-					  {skills}
-					</ul>
-				</div>
-			</div>
-      </div>
-   </section>
+      </section>
     );
   }
 }
