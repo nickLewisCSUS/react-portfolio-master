@@ -701,7 +701,7 @@ ul#nav li.current a {
    padding-top: 90px;
    padding-bottom: 60px;
    position: relative;
-  z-index: -1;
+   z-index: auto;
 }
 #portfolio h1 {
    font: 15px/24px 'opensans-semibold', sans-serif;

@@ -10,9 +10,12 @@ const Contact = ({ data }) => {
    console.log(data)
 
     const handleClick = (e) => {
-       e.preventDefault();
-      window.open(`mailto:${email}?subject=${subject}&body=${name}: ${message}`);
-    }
+      e.preventDefault();
+
+      const mailtoLink = `mailto:nicholaslewis3452@gmail.com?subject=${encodeURIComponent(subject)}&body=From: ${name} (${email})%0D%0A%0D%0A${encodeURIComponent(message)}`;
+
+      window.open(mailtoLink);
+    };
     
 
     return (
