@@ -8,16 +8,18 @@ class Header extends Component {
       `${process.env.PUBLIC_URL}/images/Pi-BackGround.png`,
       `${process.env.PUBLIC_URL}/images/portfolio/BigBoom.png`,
     ];
+
     this.state = {
       navOpen: false,
       currentIndex: 0,
-      previousIndex: null
+      transitionImage: null,
+      isFading: false
     };
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    this.interval = setInterval(this.changeBackground, 6000);
+    this.interval = setInterval(this.handleBackgroundChange, 6000);
   }
 
   componentWillUnmount() {
@@ -25,18 +27,30 @@ class Header extends Component {
     clearInterval(this.interval);
   }
 
-  changeBackground = () => {
-    this.setState((prev) => ({
-      previousIndex: prev.currentIndex,
-      currentIndex: (prev.currentIndex + 1) % this.backgrounds.length
-    }));
+  handleBackgroundChange = () => {
+    const nextIndex = (this.state.currentIndex + 1) % this.backgrounds.length;
+    const nextImage = this.backgrounds[nextIndex];
+
+    // Step 1: Fade in transition image
+    this.setState({
+      transitionImage: nextImage,
+      isFading: true
+    });
+
+    // Step 2: After fade, swap current image and clear transition
+    setTimeout(() => {
+      this.setState({
+        currentIndex: nextIndex,
+        transitionImage: null,
+        isFading: false
+      });
+    }, 1500); // Must match CSS fade duration
   };
 
   handleScroll = () => {
     const nav = document.getElementById('nav-wrap');
-    if (nav) {
-      nav.classList.toggle('shrink', window.scrollY > 60);
-    }
+    if (!nav) return;
+    nav.classList.toggle('shrink', window.scrollY > 60);
   };
 
   toggleNav = () => {
@@ -44,40 +58,41 @@ class Header extends Component {
   };
 
   render() {
-    const { currentIndex, previousIndex, navOpen } = this.state;
+    const { navOpen, currentIndex, transitionImage, isFading } = this.state;
     const currentImage = this.backgrounds[currentIndex];
-    const previousImage = previousIndex !== null ? this.backgrounds[previousIndex] : null;
 
-    const { data } = this.props;
-    const name = data?.name;
-    const occupation = data?.occupation;
-    const description = data?.description;
-    const location = data?.location;
-    const networks = data?.social?.map((network) => (
-      <li key={network.name}>
-        <a href={network.url} target="_blank" rel="noopener noreferrer">
-          <i className={network.className}></i>
-        </a>
-      </li>
-    ));
+    let name, occupation, description, location, networks;
+    if (this.props.data) {
+      const { name: n, occupation: o, description: d, location: l, social } = this.props.data;
+      name = n;
+      occupation = o;
+      description = d;
+      location = l;
+      networks = social.map((network) => (
+        <li key={network.name}>
+          <a href={network.url} target="_blank" rel="noopener noreferrer">
+            <i className={network.className}></i>
+          </a>
+        </li>
+      ));
+    }
 
     return (
       <header id="home">
-        {/* Previous image (fades out) */}
-        {previousImage && (
+        {/* Static background layer */}
+        <div
+          className="background-layer active"
+          style={{ backgroundImage: `url(${currentImage})` }}
+        />
+
+        {/* Transition image (temporarily fades in) */}
+        {transitionImage && (
           <div
-            className="background-layer"
-            style={{ backgroundImage: `url(${previousImage})` }}
-          ></div>
+            className={`background-layer fade-in`}
+            style={{ backgroundImage: `url(${transitionImage})` }}
+          />
         )}
 
-        {/* Current image (fades in) */}
-        <div
-          className="background-layer show"
-          style={{ backgroundImage: `url(${currentImage})` }}
-        ></div>
-
-        {/* Navigation */}
         <nav id="nav-wrap" className={navOpen ? 'open' : ''}>
           <a className="mobile-btn" onClick={this.toggleNav} title="Toggle navigation">
             <i className={`fa ${navOpen ? 'fa-times' : 'fa-bars'}`}></i>
