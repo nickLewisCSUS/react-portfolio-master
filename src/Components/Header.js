@@ -8,18 +8,15 @@ class Header extends Component {
       `${process.env.PUBLIC_URL}/images/Pi-BackGround.png`,
       `${process.env.PUBLIC_URL}/images/portfolio/BigBoom.png`,
     ];
-
     this.state = {
-      navOpen: false,
       currentIndex: 0,
-      transitionImage: null,
-      isFading: false
+      navOpen: false
     };
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    this.interval = setInterval(this.handleBackgroundChange, 6000);
+    this.interval = setInterval(this.nextSlide, 6000);
   }
 
   componentWillUnmount() {
@@ -27,30 +24,15 @@ class Header extends Component {
     clearInterval(this.interval);
   }
 
-  handleBackgroundChange = () => {
-    const nextIndex = (this.state.currentIndex + 1) % this.backgrounds.length;
-    const nextImage = this.backgrounds[nextIndex];
-
-    // Step 1: Fade in transition image
-    this.setState({
-      transitionImage: nextImage,
-      isFading: true
-    });
-
-    // Step 2: After fade, swap current image and clear transition
-    setTimeout(() => {
-      this.setState({
-        currentIndex: nextIndex,
-        transitionImage: null,
-        isFading: false
-      });
-    }, 1500); // Must match CSS fade duration
+  nextSlide = () => {
+    this.setState((prevState) => ({
+      currentIndex: (prevState.currentIndex + 1) % this.backgrounds.length
+    }));
   };
 
   handleScroll = () => {
     const nav = document.getElementById('nav-wrap');
-    if (!nav) return;
-    nav.classList.toggle('shrink', window.scrollY > 60);
+    if (nav) nav.classList.toggle('shrink', window.scrollY > 60);
   };
 
   toggleNav = () => {
@@ -58,8 +40,8 @@ class Header extends Component {
   };
 
   render() {
-    const { navOpen, currentIndex, transitionImage, isFading } = this.state;
-    const currentImage = this.backgrounds[currentIndex];
+    const { currentIndex, navOpen } = this.state;
+    const offset = `translateX(-${currentIndex * 100}%)`;
 
     let name, occupation, description, location, networks;
     if (this.props.data) {
@@ -79,19 +61,14 @@ class Header extends Component {
 
     return (
       <header id="home">
-        {/* Static background layer */}
-        <div
-          className="background-layer active"
-          style={{ backgroundImage: `url(${currentImage})` }}
-        />
-
-        {/* Transition image (temporarily fades in) */}
-        {transitionImage && (
+        {this.backgrounds.map((bg, i) => (
           <div
-            className={`background-layer fade-in`}
-            style={{ backgroundImage: `url(${transitionImage})` }}
+            key={i}
+            className={`background-slide ${i === this.state.currentIndex ? 'visible' : ''}`}
+            style={{ backgroundImage: `url(${bg})` }}
           />
-        )}
+        ))}
+
 
         <nav id="nav-wrap" className={navOpen ? 'open' : ''}>
           <a className="mobile-btn" onClick={this.toggleNav} title="Toggle navigation">
