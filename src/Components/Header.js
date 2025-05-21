@@ -16,7 +16,7 @@ class Header extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    this.interval = setInterval(this.nextSlide, 6000);
+    this.interval = setInterval(this.nextSlide, 7000);
   }
 
   componentWillUnmount() {
