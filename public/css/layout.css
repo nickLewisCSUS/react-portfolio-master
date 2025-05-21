@@ -31,25 +31,55 @@ body { background: #0f0f0f; }
 /* Header Container */
 header {
   position: relative;
-  height: 800px;
+  height: 880px;
   min-height: 500px;
   width: 100%;
-  background: #161415 url(../images/Pi-BackGround.png) no-repeat top center;
-  background-size: cover !important;
-  -webkit-background-size: cover !important;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
+  z-index: 0;
 }
 
-/* Overlay Gradient on Header */
-header::after {
-  content: "";
+.background-layer {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-layer.show {
+  opacity: 1;
   z-index: 1;
+}
+
+.background-layer.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.background-layer.fade-in {
+  opacity: 1;
+  z-index: 2;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+header .banner {
+  position: relative;
+  z-index: 3;
 }
 
 /* Vertically center banner */
@@ -183,6 +213,7 @@ header .scrolldown a {
   border-radius: 100%;
   transition: all 0.3s ease-in-out;
 }
+
 
 /* Fade-In Animation */
 .fade-in-up {
@@ -642,6 +673,7 @@ ul#nav li.current a {
   background: linear-gradient(90deg, #ffcd00, #f0a500);
   transition: width 1.2s ease-in-out;
 }
+
 /* ------------------------------------------------------------------ */
 /* e. Portfolio Section
 /* ------------------------------------------------------------------ */
@@ -727,14 +759,16 @@ ul#nav li.current a {
 	transition: opacity 0.3s ease-in-out;
 
    position: absolute;
-   top: 95%;
+   top: 85%;
    left: 50%;
    margin-left: -15px;
    margin-top: -15px;
 }
 .portfolio-item .item-wrap img {
-   vertical-align: bottom;
-   transition: transform 0.5s ease;
+  width: 100%;
+  height: 225px; /* or whatever height matches your other images */
+  object-fit: cover;
+  border-radius: 4px;
 }
 .portfolio-item:hover .item-wrap img {
   transform: scale(1.05);
@@ -899,6 +933,20 @@ call-to-action .button {
 /* ------------------------------------------------------------------
 /* g. Testimonials
 /* ------------------------------------------------------------------ */
+.quote-intro-container {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 40px; /* this now works */
+}
+
+.quote-intro {
+  font-family: 'Open Sans', sans-serif;
+  color: #dddddd; /* Softer white */
+  font-size: 18px;
+  opacity: 0.9;
+  margin: 0 auto;
+  max-width: 700px;
+}
 
 #testimonials {
    background: #1F1F1F url(../images/testimonials-bg.jpg) no-repeat center center;
@@ -912,8 +960,20 @@ call-to-action .button {
    overflow: hidden;
 }
 #testimonials .text-container {
-   padding-top: 96px;
-   padding-bottom: 66px;
+  position: relative;
+  z-index: 1;
+  padding-top: 96px;
+  padding-bottom: 66px;
+}
+#testimonials::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55); /* dark semi-transparent overlay */
+  z-index: 0; /* stay behind the content */
 }
 #testimonials h1 {
    font: 18px/24px 'opensans-bold', sans-serif;
@@ -935,11 +995,13 @@ call-to-action .button {
 }
 
 /*	Blockquotes */
-#testimonials blockquote {
-   margin: 0 0px 30px 0px;
-   padding-left: 0;
-   position: relative;
-   text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+#testimonials blockquote p {
+  font-family: 'librebaskerville-italic', serif;
+  padding: 0;
+  font-size: 24px;
+  line-height: 48px;
+  color: #e0e0e0; /* Softer white */
+  text-shadow: none; /* Optional: remove harsh shadow */
 }
 #testimonials blockquote:before { content: none; }
 #testimonials blockquote p {
@@ -950,11 +1012,9 @@ call-to-action .button {
    color: #fff
 }
 #testimonials blockquote cite {
-   display: block;
-   font-size: 12px;
-   font-style: normal;
-   line-height: 18px;
-   color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  color: #bbbbbb; /* Dimmed for contrast */
 }
 #testimonials blockquote cite:before { content: "\2014 \0020"; }
 #testimonials blockquote cite a,
