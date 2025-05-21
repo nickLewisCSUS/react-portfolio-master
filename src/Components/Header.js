@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         navOpen: false
+      };
+   }
 
    componentDidMount() {
       window.addEventListener('scroll', this.handleScroll);
@@ -21,8 +27,13 @@ class Header extends Component {
       }
    };
 
+   toggleNav = () => {
+      this.setState((prevState) => ({
+         navOpen: !prevState.navOpen
+      }));
+   };
+
    render() {
-      // Declare variables outside of the if-block so they're available in JSX
       let name, occupation, description, location, networks;
 
       if (this.props.data) {
@@ -43,17 +54,20 @@ class Header extends Component {
 
       return (
          <header id="home">
-            <nav id="nav-wrap">
-               <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-               <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
+            <nav id="nav-wrap" className={this.state.navOpen ? 'open' : ''}>
+               {/* Toggle button (hamburger icon) */}
+               <a className="mobile-btn" onClick={this.toggleNav} title="Toggle navigation">
+                  <i className={`fa ${this.state.navOpen ? 'fa-times' : 'fa-bars'}`}></i>
+               </a>
 
+               {/* Navigation list */}
                <ul id="nav" className="nav">
-                  <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-                  <li><a className="smoothscroll" href="#about">About</a></li>
-                  <li><a className="smoothscroll" href="#resume">Resume</a></li>
-                  <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-                  <li><a className="smoothscroll" href="#testimonials">Quotes</a></li>
-                  <li><a className="smoothscroll" href="#contact">Contact</a></li>
+                  <li className="current"><a className="smoothscroll" href="#home" onClick={this.toggleNav}>Home</a></li>
+                  <li><a className="smoothscroll" href="#about" onClick={this.toggleNav}>About</a></li>
+                  <li><a className="smoothscroll" href="#resume" onClick={this.toggleNav}>Resume</a></li>
+                  <li><a className="smoothscroll" href="#portfolio" onClick={this.toggleNav}>Works</a></li>
+                  <li><a className="smoothscroll" href="#testimonials" onClick={this.toggleNav}>Quotes</a></li>
+                  <li><a className="smoothscroll" href="#contact" onClick={this.toggleNav}>Contact</a></li>
                </ul>
             </nav>
 
