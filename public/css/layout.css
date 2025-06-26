@@ -124,19 +124,29 @@ header .banner-text {
 /* Typing Headline */
 header .banner-text h1 {
   font: 90px/1.1em 'opensans-bold', sans-serif;
-  color: #f5f5f5;
+  color: #d6b4ff; /* soft light violet */
   letter-spacing: -2px;
   margin: 0 auto 18px auto;
   text-shadow: none;
-  background: linear-gradient(90deg, #fff, #ffcd00);
+}
+
+/* Text Glow */
+.hero-title {
+  background: linear-gradient(90deg, #8a2be2, #00ffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+.hero-subtitle {
+  text-shadow: none;
+  color: #e0e0e0; /* already set, but make sure it stays readable */
 }
 
 /* Highlighted Name Animation */
 .highlight-name {
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(90deg, #fff, #ffcd00);
+  background: linear-gradient(90deg, #8a2be2, #00ffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: transform 0.1s ease-in-out;
@@ -151,7 +161,7 @@ header .banner-text h1 {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid #ffcd00;
+  border-right: 2px solid #00ffff;
   animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
 }
 
@@ -171,12 +181,12 @@ header .banner-text h3 {
   max-width: 800px;
   margin: 0 auto;
   letter-spacing: 0.5px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 header .banner-text h3 span {
   font-weight: bold;
-  color: #ffcd00;
+  color: #00ffff;
 }
 
 header .banner-text h3 a {
@@ -209,7 +219,7 @@ header .social li a {
 }
 
 header .social li a:hover {
-  color: #ffcd00;
+  color:#00ffff;
 }
 
 /* Scroll Down Icon */
@@ -243,8 +253,61 @@ header .scrolldown a {
   }
 }
 
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Below text, above background */
+  pointer-events: none;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.3); /* black tint */
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
 /* primary navigation
 --------------------------------------------------------------------- */
+#nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+#equation-logo {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e0d9ff;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+#equation-logo:hover {
+  background: rgba(50, 50, 80, 0.5);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+#equation-logo:hover {
+  background: rgba(50, 50, 80, 0.5);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #equation-logo {
+    display: none;
+  }
+}
+
 #nav-wrap ul, #nav-wrap li, #nav-wrap a {
 	 margin: 0;
 	 padding: 0;
@@ -254,6 +317,7 @@ header .scrolldown a {
 
 /* nav-wrap */
 #nav-wrap {
+   display: block;
    font: 14px 'opensans-bold', sans-serif;
    width: 100%;
    text-transform: uppercase;
@@ -263,11 +327,11 @@ header .scrolldown a {
    position: fixed;
    left: 0;
    top: 0;
-   background: rgba(4, 57, 39, 0.95); /* Dark green with transparency */
-   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+   background: transparent;
+   box-shadow: none;
+   backdrop-filter: none;
+   -webkit-backdrop-filter: none;
    transition: background 0.3s ease-in-out;
-   backdrop-filter: blur(8px);
-   -webkit-backdrop-filter: blur(8px);
 }
 .opaque { background-color: #333; }
 
@@ -318,26 +382,30 @@ ul#nav li a {
 
 /* Underline effect */
 ul#nav li a::after {
-   content: '';
-   position: absolute;
-   left: 0;
-   bottom: 5px;
-   width: 0;
-   height: 2px;
-   background-color: #ffcd00;
-   transition: width 0.3s ease-in-out;
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c084fc; /* soft purple */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 /* Hover and current item underline */
 ul#nav li a:hover::after,
 ul#nav li.current a::after {
-   width: 100%;
+  opacity: 1;
+  transform: translateX(-50%) translateY(2px);
 }
 
 /* Optional glow on hover */
 ul#nav li a:hover {
-   color: #ffcd00;
-   text-shadow: 0 0 5px #ffcd00;
+   color: #e38aff;
+   text-shadow: 0 0 6px #e38aff, 0 0 10px #8800ff;
 }
 
 /* Active state stays clean */
@@ -347,14 +415,21 @@ ul#nav li a:active {
 
 /* Current page link color (text only) */
 ul#nav li.current a {
-   color: #ffcd00;
+   color: transparent;
+   background-image: linear-gradient(to right, #e38aff, #c084fc);
+   background-clip: text;
+   -webkit-background-clip: text;
+   text-shadow: 0 0 6px #a855f7;
 }
 
 /* Shrink nav on scroll */
 #nav-wrap.shrink {
-   padding: 5px 0;
-   background: rgba(4, 57, 39, 0.9);
-   transition: all 0.3s ease-in-out;
+  padding: 5px 0;
+  background: linear-gradient(to right, rgba(23, 0, 45, 0.75), rgba(40, 0, 80, 0.75));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease-in-out;
 }
 
 #nav-wrap.shrink ul#nav li a {
@@ -389,11 +464,10 @@ ul#nav li.current a {
 
   /* Menu Links */
   ul#nav li a {
-    font-size: 18px;
-    color: #fff;
-    padding: 8px 20px;
-    display: block;
-  }
+   color: #ddd;
+   font-weight: 600;
+   text-shadow: 0 0 4px #d99cff, 0 0 10px #3c006b;
+   }
 
   ul#nav li a:hover {
     color: #ffcd00;

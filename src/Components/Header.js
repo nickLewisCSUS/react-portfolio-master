@@ -1,47 +1,70 @@
 import React, { Component } from 'react';
+import ParticlesBackground from './ParticlesBackground';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.backgrounds = [
-      `${process.env.PUBLIC_URL}/images/swish-background.jpg`,
-      `${process.env.PUBLIC_URL}/images/Pi-BackGround.png`,
-      `${process.env.PUBLIC_URL}/images/portfolio/BigBoom.png`,
+      `${process.env.PUBLIC_URL}/images/nebula-cloud.jpg`,
     ];
     this.state = {
-      currentIndex: 0,
-      navOpen: false
+      navOpen: false,
+      typingText: 'Nicholas Lewis',
     };
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    this.interval = setInterval(this.nextSlide, 7000);
+    this.typingMessages = ['Nicholas Lewis', 'Coding is Life!'];
+    this.typingIndex = 0;
+    this.charIndex = 0;
+    this.isDeleting = false;
+
+    this.typingTimer = setInterval(this.handleTyping, 120); // typing speed
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-    clearInterval(this.interval);
-  }
+  handleTyping = () => {
+    const currentMessage = this.typingMessages[this.typingIndex];
+    const fullLength = currentMessage.length;
 
-  nextSlide = () => {
-    this.setState((prevState) => ({
-      currentIndex: (prevState.currentIndex + 1) % this.backgrounds.length
-    }));
+    if (this.isDeleting) {
+      this.charIndex--;
+      if (this.charIndex <= 0) {
+        this.isDeleting = false;
+        this.typingIndex = (this.typingIndex + 1) % this.typingMessages.length;
+      }
+    } else {
+      this.charIndex++;
+      if (this.charIndex === fullLength + 1) {
+        setTimeout(() => {
+          this.isDeleting = true;
+        }, 2500); // 1 second pause before deleting
+        return;
+      }
+    }
+
+    this.setState({
+      typingText: currentMessage.substring(0, this.charIndex)
+    });
   };
+
 
   handleScroll = () => {
     const nav = document.getElementById('nav-wrap');
     if (nav) nav.classList.toggle('shrink', window.scrollY > 60);
   };
 
+  componentWillUnmount() {
+     window.removeEventListener('scroll', this.handleScroll);
+    clearInterval(this.typingTimer);
+  }
+
   toggleNav = () => {
     this.setState((prev) => ({ navOpen: !prev.navOpen }));
   };
 
   render() {
-    const { currentIndex, navOpen } = this.state;
-    const offset = `translateX(-${currentIndex * 100}%)`;
+    const { navOpen } = this.state;
 
     let name, occupation, description, location, networks;
     if (this.props.data) {
@@ -61,35 +84,52 @@ class Header extends Component {
 
     return (
       <header id="home">
-        {this.backgrounds.map((bg, i) => (
-          <div
-            key={i}
-            className={`background-slide ${i === this.state.currentIndex ? 'visible' : ''}`}
-            style={{ backgroundImage: `url(${bg})` }}
-          />
-        ))}
+        <div
+          className="background-slide visible"
+          style={{ backgroundImage: `url(${this.backgrounds})` }}
+        />
 
+        {/* Particle layer */}
+        <ParticlesBackground />
 
         <nav id="nav-wrap" className={navOpen ? 'open' : ''}>
-          <a className="mobile-btn" onClick={this.toggleNav} title="Toggle navigation">
-            <i className={`fa ${navOpen ? 'fa-times' : 'fa-bars'}`}></i>
-          </a>
-          <ul id="nav" className="nav">
-            <li className="current"><a className="smoothscroll" href="#home" onClick={this.toggleNav}>Home</a></li>
-            <li><a className="smoothscroll" href="#about" onClick={this.toggleNav}>About</a></li>
-            <li><a className="smoothscroll" href="#resume" onClick={this.toggleNav}>Resume</a></li>
-            <li><a className="smoothscroll" href="#portfolio" onClick={this.toggleNav}>Works</a></li>
-            <li><a className="smoothscroll" href="#testimonials" onClick={this.toggleNav}>Quotes</a></li>
-            <li><a className="smoothscroll" href="#contact" onClick={this.toggleNav}>Contact</a></li>
-          </ul>
-        </nav>
+  <div id="nav-inner">
+    <a
+      id="equation-logo"
+      href="#home"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.toggleNav();
+      }}
+    >
+      𝑎⁽ˡ⁾ = σ(𝑊⁽ˡ⁾𝑎⁽ˡ⁻¹⁾ + 𝑏⁽ˡ⁾)
+    </a>
+    <ul id="nav" className="nav">
+      <li className="current">
+        <a className="smoothscroll" href="#home" onClick={this.toggleNav}>Home</a>
+      </li>
+      <li><a className="smoothscroll" href="#about" onClick={this.toggleNav}>About</a></li>
+      <li><a className="smoothscroll" href="#resume" onClick={this.toggleNav}>Resume</a></li>
+      <li><a className="smoothscroll" href="#portfolio" onClick={this.toggleNav}>Works</a></li>
+      <li><a className="smoothscroll" href="#testimonials" onClick={this.toggleNav}>Quotes</a></li>
+      <li><a className="smoothscroll" href="#contact" onClick={this.toggleNav}>Contact</a></li>
+    </ul>
+  </div>
+
+  <a className="mobile-btn" onClick={this.toggleNav} title="Toggle navigation">
+    <i className={`fa ${navOpen ? 'fa-times' : 'fa-bars'}`}></i>
+  </a>
+</nav>
 
         <div className="row banner">
           <div className="banner-text">
-            <h1 className="responsive-headline fade-in-up">
-              <span className="responsive-headline typing">Nicholas Lewis</span>
+            <h1 className="responsive-headline fade-in-up hero-title">
+              <span className="responsive-headline typing">
+                {this.state.typingText}
+              </span>
             </h1>
-            <h3 className="fade-in-up">
+            <h3 className="fade-in-up hero-subtitle">
               I'm a <strong>{location}</strong> based <span>{occupation}</span>.<br />
               {description}.
             </h3>
