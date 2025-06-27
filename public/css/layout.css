@@ -500,18 +500,6 @@ ul#nav li.current a {
     display: none; /* disable underline on mobile */
   }
 
-  /* Mobile menu button */
-  #nav-wrap > a.mobile-btn {
-    display: block;
-    color: #ffcd00;
-    background: transparent;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 32px;
-    z-index: 1001;
-  }
-
   @keyframes fadeDown {
     from {
       opacity: 0;
@@ -1262,7 +1250,7 @@ call-to-action .button {
 }
 #contact .section-head { margin-bottom: 42px; }
 
- #contact a, #contact a:visited  { color: #ffcd00; } 
+#contact a, #contact a:visited  { color: #ffcd00; } 
 #contact a:hover, #contact a:focus { color: #fff; }
 
 #contact h1 {
