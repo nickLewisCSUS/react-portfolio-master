@@ -15,7 +15,7 @@ const ParticlesBackground = () => {
             fullScreen: { enable: false },
             background: { color: { value: 'transparent' } },
             particles: {
-            number: { value: 260 },
+            number: { value: 140 },
             color: {
                 value: ['#ffffff', '#8a2be2', '#00ffff', '#ff69b4', '#b0c4de']
             },
@@ -44,11 +44,11 @@ const ParticlesBackground = () => {
             opacity: {
                 value: 0.8,
                 random: true,
-                anim: { enable: true, speed: 0.6, opacity_min: 0.3, sync: false }
+                anim: { enable: true, speed: 0.4, opacity_min: 0.3, sync: false }
             },
             size: {
                 value: { min: 1.5, max: 4 },
-                anim: { enable: true, speed: 1.5, size_min: 0.5, sync: false }
+                anim: { enable: true, speed: 1.0, size_min: 0.5, sync: false }
             },
             move: {
                 enable: true,
