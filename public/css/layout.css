@@ -491,10 +491,6 @@ ul#nav li.current a {
    text-shadow: 0 0 4px #d99cff, 0 0 10px #3c006b;
    }
 
-  ul#nav li a:hover {
-    color: #ffcd00;
-    text-shadow: 0 0 6px #ffcd00;
-  }
 
   ul#nav li a::after {
     display: none; /* disable underline on mobile */

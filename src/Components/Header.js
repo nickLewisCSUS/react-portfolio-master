@@ -115,10 +115,6 @@ class Header extends Component {
               <li><a className="smoothscroll" href="#contact" onClick={this.toggleNav}>Contact</a></li>
             </ul>
           </div>
-
-  <a className="mobile-btn" onClick={this.toggleNav} title="Toggle navigation">
-    <i className={`fa ${navOpen ? 'fa-times' : 'fa-bars'}`}></i>
-  </a>
 </nav>
 
         <div className="row banner">
