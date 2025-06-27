@@ -93,29 +93,28 @@ class Header extends Component {
         <ParticlesBackground />
 
         <nav id="nav-wrap" className={navOpen ? 'open' : ''}>
-  <div id="nav-inner">
-    <a
-      id="equation-logo"
-      href="#home"
-      onClick={(e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        this.toggleNav();
-      }}
-    >
-      𝑎⁽ˡ⁾ = σ(𝑊⁽ˡ⁾𝑎⁽ˡ⁻¹⁾ + 𝑏⁽ˡ⁾)
-    </a>
-    <ul id="nav" className="nav">
-      <li className="current">
-        <a className="smoothscroll" href="#home" onClick={this.toggleNav}>Home</a>
-      </li>
-      <li><a className="smoothscroll" href="#about" onClick={this.toggleNav}>About</a></li>
-      <li><a className="smoothscroll" href="#resume" onClick={this.toggleNav}>Resume</a></li>
-      <li><a className="smoothscroll" href="#portfolio" onClick={this.toggleNav}>Works</a></li>
-      <li><a className="smoothscroll" href="#testimonials" onClick={this.toggleNav}>Quotes</a></li>
-      <li><a className="smoothscroll" href="#contact" onClick={this.toggleNav}>Contact</a></li>
-    </ul>
-  </div>
+          <div id="nav-inner">
+            <a
+               id="equation-logo"
+               href="/"
+               onClick={(e) => {
+               e.preventDefault();
+               window.location.reload(); // refresh the entire app
+              }}
+            >
+              𝑎⁽ˡ⁾ = σ(𝑊⁽ˡ⁾𝑎⁽ˡ⁻¹⁾ + 𝑏⁽ˡ⁾)
+            </a>
+            <ul id="nav" className="nav">
+              <li className="current">
+                <a className="smoothscroll" href="#home" onClick={this.toggleNav}>Home</a>
+              </li>
+              <li><a className="smoothscroll" href="#about" onClick={this.toggleNav}>About</a></li>
+              <li><a className="smoothscroll" href="#resume" onClick={this.toggleNav}>Resume</a></li>
+              <li><a className="smoothscroll" href="#portfolio" onClick={this.toggleNav}>Works</a></li>
+              <li><a className="smoothscroll" href="#testimonials" onClick={this.toggleNav}>Quotes</a></li>
+              <li><a className="smoothscroll" href="#contact" onClick={this.toggleNav}>Contact</a></li>
+            </ul>
+          </div>
 
   <a className="mobile-btn" onClick={this.toggleNav} title="Toggle navigation">
     <i className={`fa ${navOpen ? 'fa-times' : 'fa-bars'}`}></i>
