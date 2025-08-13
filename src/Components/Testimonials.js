@@ -1,59 +1,81 @@
-import React, { Component } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-class Testimonials extends Component {
-      componentDidMount() {
-      setTimeout(() => {
-         if (window.$ && window.$.fn.flexslider) {
-            window.$('.flexslider').flexslider({
-               animation: "fade",
-               controlNav: true,
-               directionNav: false,
-               slideshowSpeed: 6000,
-               animationSpeed: 800,
-               smoothHeight: true
-            });
-         }
-      }, 100); // Delay 100ms to ensure DOM is ready
-   }
-  render() {
+const ROTATE_MS = 6000;
+const FADE_MS = 800;
 
-    if(this.props.data){
-      var testimonials = this.props.data.testimonials.map(function(testimonials){
-        return  <li key={testimonials.user}>
-            <blockquote>
-               <p>{testimonials.text}</p>
-               <cite>{testimonials.user}</cite>
-            </blockquote>
-         </li>
-      })
-    }
+export default function Testimonials({ data }) {
+  const items = useMemo(() => (data?.testimonials ?? []), [data]);
+  const [idx, setIdx] = useState(0);
+  const timer = useRef(null);
 
-    return (
-   <section id="testimonials">
-  <div className="text-container">
-    <div className="row">
+  // Respect reduced motion
+  const reducedMotion = typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      <div className="quote-intro-container">
-        <p className="quote-intro">Some thoughts that inspire my approach to code and creativity.</p>
-      </div>
+  useEffect(() => {
+    if (!items.length) return;
 
-      <div className="two columns header-col">
-        <h1><span>Quotes</span></h1>
-      </div>
+    if (reducedMotion) return; // don’t auto-rotate if user prefers no motion
 
-      <div className="ten columns">
-        <div className="flexslider">
-          <ul className="slides">
-            {testimonials}
-          </ul>
+    timer.current = setInterval(() => {
+      setIdx(i => (i + 1) % items.length);
+    }, ROTATE_MS);
+
+    return () => clearInterval(timer.current);
+  }, [items.length, reducedMotion]);
+
+  const goTo = (i) => {
+    clearInterval(timer.current);
+    setIdx(i);
+  };
+
+  return (
+    <section id="testimonials">
+      <div className="text-container">
+        <div className="row">
+          <div className="quote-intro-container">
+            <p className="quote-intro">
+              Some thoughts that inspire my approach to code and creativity.
+            </p>
+          </div>
+
+          <div className="two columns header-col">
+            <h1><span>Quotes</span></h1>
+          </div>
+
+          <div className="ten columns">
+            <div className="fade-slider" aria-roledescription="carousel">
+              {items.map((t, i) => (
+                <div
+                  key={t.user + i}
+                  className={`fade-slide ${i === idx ? 'is-active' : ''}`}
+                  aria-hidden={i === idx ? 'false' : 'true'}
+                >
+                  <blockquote>
+                    <p>{t.text}</p>
+                    <cite>{t.user}</cite>
+                  </blockquote>
+                </div>
+              ))}
+              {items.length > 1 && (
+                <div className="fade-dots" role="tablist" aria-label="Quotes navigation">
+                  {items.map((_, i) => (
+                    <button
+                      key={i}
+                      className={`dot ${i === idx ? 'active' : ''}`}
+                      aria-label={`Go to quote ${i + 1}`}
+                      aria-selected={i === idx}
+                      onClick={() => goTo(i)}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-   );
-  }
+    </section>
+  );
 }
-
-export default Testimonials;

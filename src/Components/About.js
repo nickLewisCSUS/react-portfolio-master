@@ -1,61 +1,63 @@
 import React, { Component } from 'react';
-import resume from '../Resume_Nick_Lewis.pdf'
+import resume from '../Resume_Nick_Lewis.pdf';
 
 class About extends Component {
-   render() {
+  render() {
+    if (!this.props.data) return null;
 
-      if (this.props.data) {
-         var name = this.props.data.name;
-         var profilepic = "images/" + this.props.data.image;
-         var bio = this.props.data.bio;
-         var street = this.props.data.address.street;
-         var city = this.props.data.address.city;
-         var state = this.props.data.address.state;
-         var zip = this.props.data.address.zip;
-         var phone = this.props.data.phone;
-         var email = this.props.data.email;
-         // var resumeDownload = this.props.data.resumedownload;
-      }
+    const { name, image, bio, address, phone, email } = this.props.data;
+    const profilepic = `images/${image}`;
+    const { city, state, zip } = address || {};
 
-      return (
-         <section id="about">
-            <div className="row about-wrapper">
-               {/* Profile Picture Column */}
-               <div className="three columns">
-               <img className="profile-pic" src={profilepic} alt={`${name} Profile`} />
-               </div>
+    return (
+      <section id="about">
+        <div className="about-grid">
+          {/* Avatar */}
+          <div className="about-avatar">
+            <img className="profile-pic" src={profilepic} alt={`${name} profile portrait`} />
+          </div>
 
-               {/* Main Content Column */}
-               <div className="nine columns main-col about-card">
-                  <h2 className="fade-delay-1">About Me</h2>
-                  <p className="fade-delay-2">{bio}</p>
+          {/* Card */}
+          <div className="about-card">
+            <h2 className="fade-delay-1">About Me</h2>
+            <p className="fade-delay-2">{bio}</p>
 
-                  <div className="section-divider"></div>
+            <h3 className="about-subtitle fade-delay-3">Contact Details</h3>
 
-                  <div className="row fade-delay-3">
-                     <div className="columns contact-details">
-                        <h2>Contact Details</h2>
-                        <p className="address">
-                        <span>{name}</span>
-                        <span>{city}, {state} {zip}</span>
-                        <span><a href={`tel:${phone}`}>{phone}</a></span>
-                        <span><a href={`mailto:${email}`}>{email}</a></span>
-                        </p>
-                     </div>
+            <address className="contact-chips fade-delay-3">
+              <span className="chip">
+                <i className="fa fa-user" aria-hidden="true" />
+                {name}
+              </span>
+              <span className="chip">
+                <i className="fa fa-map-marker" aria-hidden="true" />
+                {city}, {state} {zip}
+              </span>
+              <a className="chip" href={`tel:${phone}`} aria-label="Call phone">
+                <i className="fa fa-phone" aria-hidden="true" />
+                {phone}
+              </a>
+              <a className="chip" href={`mailto:${email}`} aria-label="Send email">
+                <i className="fa fa-envelope" aria-hidden="true" />
+                {email}
+              </a>
+            </address>
 
-                     <div className="columns download">
-                        <p>
-                        <a href={resume} className="button" download>
-                           <i className="fa fa-download"></i> Download Resume
-                        </a>
-                        </p>
-                     </div>
-                  </div>
-               </div>
+            <div className="about-cta">
+              <a href={resume} className="button button-gradient" download>
+                <i className="fa fa-download" aria-hidden="true" />
+                Download Resume
+              </a>
+              <a href={`mailto:${email}`} className="button button-ghost">
+                <i className="fa fa-paper-plane" aria-hidden="true" />
+                Email Me
+              </a>
             </div>
-         </section>
-      );
-   }
+          </div>
+        </div>
+      </section>
+    );
+  }
 }
 
 export default About;
