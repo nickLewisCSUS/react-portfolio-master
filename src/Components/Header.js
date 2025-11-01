@@ -250,7 +250,7 @@ class Header extends Component {
 
             {/* concise tagline instead of repeating About content */}
             <h3 className="fade-in-up hero-subtitle">
-              {tagline || 'Aspiring Software Engineer · Hackathons · Game Dev · Creative Tech'}
+              {tagline || 'Aspiring Software Engineer · Hackathons · Web Development · Creative Tech'}
             </h3>
 
             <hr />
