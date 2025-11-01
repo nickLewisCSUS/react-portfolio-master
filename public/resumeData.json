@@ -2,7 +2,7 @@
   "main": {
     "name": "Nicholas Lewis",
     "occupation": "Aspiring Software Engineer",
-    "tagline": "Aspiring Software Engineer · Hackathons · Game Dev · Creative Tech",
+    "tagline": "Aspiring Software Engineer · Hackathons · Web Development · Creative Tech",
     "description": "Recent Computer Science graduate from California State University, Sacramento with a passion for hackathons, game development, and creative tech projects",
     "image": "Nick-image.jpeg",
     "bio": "Hi, my name is Nick. I recently graduated with a Bachelor's Degree in Computer Science from Sacramento State University. I'm passionate about building creative tech solutions, especially through hackathons and hands-on projects with Raspberry Pi. I also bring a strong work ethic from my experience as a Starbucks Barista at Target.",
@@ -92,17 +92,17 @@
         "url": "https://github.com/nickLewisCSUS/BigBoom"
       },
       {
-        "title": "Dynamic-PDF-Generation",
-        "category": "PDF Generation, storage, and Email delivery with Google Firebase. Uses JavaScript and LaTeX.",
-        "image": "pdf-image.png",
-        "url": "https://bit.ly/3QL1rmw"
+        "title": "VoiceVision",
+        "category": "AI-powered smart glasses concept using computer vision and voice feedback to assist visually impaired users. Built with Raspberry Pi, camera module, and real-time object detection.",
+        "image": "VoiceVision.png",
+        "url": "https://github.com/nickLewisCSUS/VoiceVision"
       },
       {
-        "title": "Custom Command Line Argument Processor (myxargs)",
-        "category": "Designed a C-based command-line utility inspired by Unix ‘xargs‘",
-        "image": "Xargs.png",
-        "url": "https://github.com/nickLewisCSUS/XARGS"
-      }
+  "title": "3D Satellite Tracker (Unity C#)",
+  "category": "Real-time 3D Earth & orbit visualization using N2YO data; orbit path rendering, altitude exaggeration slider, and HUD telemetry.",
+  "image": "satelliteTracker.gif",
+  "url": "https://github.com/nickLewisCSUS/SatelliteTracker"
+}
 
     ]
   },
