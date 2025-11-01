@@ -95,7 +95,7 @@
         "title": "VoiceVision",
         "category": "AI-powered smart glasses concept using computer vision and voice feedback to assist visually impaired users. Built with Raspberry Pi, camera module, and real-time object detection.",
         "image": "VoiceVision.png",
-        "url": "https://github.com/nickLewisCSUS/VoiceVision"
+        "url": "https://github.com/christian-buco/Voice-Vision"
       },
       {
   "title": "3D Satellite Tracker (Unity C#)",
